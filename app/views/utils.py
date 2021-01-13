@@ -34,6 +34,24 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
     return "{}{}".format(app.config["S3_LOCATION"], file.filename)
 
 
+def delete_file_from_s3(file_names, bucket_name):
+    file_dict = [{"Key": key} for key in file_names]
+    response = s3.delete_objects(
+        Bucket=bucket_name,
+        Delete={
+            "Objects":[
+                {
+                    "Key": key
+                }
+            ]
+        }
+    )
+
+    return response
+
+def get_files(bucket_name):
+    objects = s3.list_objects(Bucket=bucket_name)
+    return objects
 
 def insert_db(item):
     """
