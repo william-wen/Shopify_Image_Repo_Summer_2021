@@ -11,16 +11,15 @@ s3 = boto3.client(
    aws_secret_access_key=os.environ.get("S3_SECRET_ACCESS_KEY")
 )
 
-def upload_file_to_s3(file, bucket_name, acl="public-read"):
+def upload_file_to_s3(file, unique_id, bucket_name, acl="public-read"):
     """
     Uploads file to Amazon S3
     """
     try:
-
         s3.upload_fileobj(
             file,
             bucket_name,
-            file.filename,
+            unique_id,
             ExtraArgs={
                 "ACL": acl,
                 "ContentType": file.content_type
@@ -31,19 +30,14 @@ def upload_file_to_s3(file, bucket_name, acl="public-read"):
         print("Something Happened: ", e)
         return e
 
-    return "{}{}".format(app.config["S3_LOCATION"], file.filename)
-
 
 def delete_file_from_s3(file_names, bucket_name):
     file_dict = [{"Key": key} for key in file_names]
+    print("File Dict", file_dict)
     response = s3.delete_objects(
         Bucket=bucket_name,
         Delete={
-            "Objects":[
-                {
-                    "Key": key
-                }
-            ]
+            "Objects": file_dict
         }
     )
 

@@ -16,7 +16,7 @@ class Config:
     # DB Info
     DB_USERNAME = os.environ.get("DB_USERNAME")
     DB_PASSWORD = os.environ.get("DB_PASSWORD")
-    HOST = os.environ.get("HOST")
+    HOST = os.environ.get("DB_HOST_NAME")
     DB_PORT = os.environ.get("DB_PORT")
     SCHEMA_NAME = os.environ.get("SCHEMA_NAME")
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://{}:{}@{}:{}/{}".format(
