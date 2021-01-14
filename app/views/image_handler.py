@@ -1,7 +1,6 @@
 import json
 import os
 from os.path import splitext
-import shutil
 from flask import Blueprint, request, render_template
 from flask import current_app as app
 from flask_cors import cross_origin
@@ -15,13 +14,13 @@ from app.views.utils import (
 
 image_handler = Blueprint("image_handler", __name__)
 
-@image_handler.route("/")
+@image_handler.route("/api")
 @cross_origin()
 def index():
-    return render_template("index.html")
+    return "Welcome to the Shopify Image Repo API!"
 
 
-@image_handler.route("/upload", methods=["POST"])
+@image_handler.route("/api/upload", methods=["POST"])
 @cross_origin()
 def upload_file():
     uploaded_files = request.files.getlist("imgFiles[]")
@@ -57,7 +56,7 @@ def upload_file():
     }
 
 
-@image_handler.route("/delete", methods=["DELETE"])
+@image_handler.route("/api/delete", methods=["DELETE"])
 @cross_origin()
 def delete_file():
     """
@@ -86,7 +85,7 @@ def delete_file():
     }
 
 
-@image_handler.route("/display", methods=["GET"])
+@image_handler.route("/api/display", methods=["GET"])
 @cross_origin()
 def display_images():
     """
@@ -104,26 +103,3 @@ def display_images():
     return {
         "display_list": ret
     }
-
-
-@image_handler.route("/insert_db", methods=["GET"])
-@cross_origin()
-def test_insert():
-    img = Image(file_name="hello.jpg")
-    insert_db(img)
-    return "hello"
-
-
-@image_handler.route("/bulk_delete", methods=["GET"])
-@cross_origin()
-def test_delete():
-    num = [1,2,3,4,5]
-    Image.query.filter_by(id=1).delete()
-    db.session.commit()
-    return "hello"
-
-@image_handler.route("/test", methods=["GET"])
-@cross_origin()
-def test():
-    print(request.values)
-    return "lol"

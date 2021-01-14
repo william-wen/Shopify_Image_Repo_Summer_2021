@@ -1,5 +1,8 @@
 boto3
+botocore
 Flask
 Flask-SQLAlchemy
+Flask-Cors
 PyMySQL
 python-dotenv
+gunicorn

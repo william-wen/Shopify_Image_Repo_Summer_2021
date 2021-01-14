@@ -25,7 +25,7 @@ class App extends Component {
 
   componentDidMount() {
     // display all imgs in the db
-    axios.get("http://localhost:5000/display")
+    axios.get("http://localhost:5000/api/display")
       .then(res => {
         console.log(res)
         // parse the img array
@@ -140,7 +140,7 @@ class App extends Component {
 
     console.log(formData)
 
-    axios.post("http://localhost:5000/upload", formData, {
+    axios.post("http://localhost:5000/api/upload", formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -165,7 +165,7 @@ class App extends Component {
     let imgsToDelete = this.getSelectedImages()
     console.log(imgsToDelete)
 
-    axios.delete("http://localhost:5000/delete", {
+    axios.delete("http://localhost:5000/api/delete", {
       data: {
         img_id_list: imgsToDelete
       }
