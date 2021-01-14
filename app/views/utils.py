@@ -32,8 +32,11 @@ def upload_file_to_s3(file, unique_id, bucket_name, acl="public-read"):
 
 
 def delete_file_from_s3(file_names, bucket_name):
+    """
+    Deletes file from Amazon S3.
+    """
+    # convert to format accepted by the s3.delete_objects method
     file_dict = [{"Key": key} for key in file_names]
-    print("File Dict", file_dict)
     response = s3.delete_objects(
         Bucket=bucket_name,
         Delete={

@@ -24,8 +24,3 @@ class Config:
     )
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-    # Debugging Info
-    SECRET_KEY = os.urandom(32)
-    DEBUG = True
-    PORT = 5000
