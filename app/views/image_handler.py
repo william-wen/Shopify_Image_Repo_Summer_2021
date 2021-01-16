@@ -14,9 +14,13 @@ from app.views.utils import (
 
 image_handler = Blueprint("image_handler", __name__)
 
+@image_handler.route("/")
+def index():
+    return app.send_static_file("index.html")
+
 @image_handler.route("/api")
 @cross_origin()
-def index():
+def welcome():
     """
     Welcome endpoint.
     """

@@ -1,11 +1,17 @@
 from flask import Flask, Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from app.exceptions.Error import Error
+import os
+from dotenv import load_dotenv
 
 db  = SQLAlchemy()
 
 def create_app():
-    app = Flask(__name__)
+    app = Flask(__name__, static_folder="../build", static_url_path="/")
+
+    # load env variables in if they aren't auto-loaded
+    load_dotenv()
+
     app.config.from_object("config.Config")
 
     db.init_app(app)
