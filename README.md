@@ -18,7 +18,7 @@ The images are stored in an Amazon S3 bucket with their reference location store
 2. In the root directory, run `yarn` to install all dependencies.
 3. Next run `pip install -r app/requirements.txt`
 4. To run the frontend, run `yarn start` (in root directory).
-5. To run the backend, run `yarn start-api` (in root directory).
+5. To run the backend, run `gunicorn wsgi:app --bind 127.0.0.1:3000` or `yarn start-api` (in root directory).
 
 # Endpoint Documentation
 
