@@ -1,16 +1,18 @@
 # Shopify_Image_Repo_Summer_2021
 
+### https://best-shopify-challenge-app.herokuapp.com/
+
 # Implemented Functionalities
 
 1. You can add one or many images to the repository.
 
 2. You can select images to delete.
 
-The images are stored in an Amazon S3 bucket with their reference location stored in a MySQL db hosted on Amazon RDB. Repo can support adding images of the same name because each image is tagged with a UUID.
+The images are stored in an Amazon S3 bucket with their reference location stored in a MySQL db hosted on Amazon RDB. Repo can support adding images of the same name because each image is tagged with a UUID. View website [here](https://best-shopify-challenge-app.herokuapp.com/).
 
 ![](interface.png)
 
-# How to Run
+# How to Run Locally
 
 1. Go to the following [link](https://docs.google.com/document/d/1zZ5_eALQw6shdA4u0U7wRMbnGW8Bhl2rWDruE6T-E6M/edit?usp=sharing) to download the .env file. Place the .env file in the root directory. Make sure the file is called `.env`. If the link doesn't work, please send me an email at `wy2wen@uwaterloo.ca` and I will send you the .env file.
 2. In the root directory, run `yarn` to install all dependencies.
