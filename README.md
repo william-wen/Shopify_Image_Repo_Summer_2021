@@ -14,6 +14,7 @@ The images are stored in an Amazon S3 bucket with their reference location store
 
 # How to Run Locally
 
+0. Run `git clone https://github.com/william-wen/Shopify_Image_Repo_Summer_2021.git` to clone the repo.
 1. Go to the following [link](https://docs.google.com/document/d/1zZ5_eALQw6shdA4u0U7wRMbnGW8Bhl2rWDruE6T-E6M/edit?usp=sharing) to download the .env file. Place the .env file in the root directory. Make sure the file is called `.env`. If the link doesn't work, please send me an email at `wy2wen@uwaterloo.ca` and I will send you the .env file.
 2. In the root directory, run `yarn` to install all dependencies.
 3. Next run `pip install -r app/requirements.txt`

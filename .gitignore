@@ -20,7 +20,6 @@
 .env.production.local
 __pycache__
 .eslintcache
-.env
 
 npm-debug.log*
 yarn-debug.log*
